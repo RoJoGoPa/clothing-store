@@ -1,6 +1,6 @@
 import './directory.styles.scss'
 import React from 'react'
-import { MenuItem } from '../menu-item/menu-item.component'
+import MenuItem from '../menu-item/menu-item.component'
 import { useState } from 'react'
 
 export const Directory = () => {
@@ -41,13 +41,8 @@ export const Directory = () => {
 
   return (
     <div className="directory-menu">
-      {sections.map(({ title, imageUrl, id, size }) => (
-        <MenuItem
-          key={id}
-          imageUrl={imageUrl}
-          size={size}
-          title={title.toUpperCase()}
-        ></MenuItem>
+      {sections.map(({ id, ...section }) => (
+        <MenuItem key={id} {...section}></MenuItem>
       ))}
     </div>
   )
